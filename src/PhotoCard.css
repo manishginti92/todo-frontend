@@ -5,12 +5,12 @@
   border-radius: 6px;
   text-align: center;
   width: 250px;
-  height: 250px; /* fix height for centering */
+  height: 250px; 
  
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertically center */
-  align-items: center;     /* horizontally center */
+  justify-content: center; 
+  align-items: center;     
 }
 
 .inner-box {

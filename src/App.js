@@ -1,27 +1,22 @@
 import React, { useState } from "react";
-import useFetch from "./hooks/useFetch";
+import useFetchData from "./hooks/useFetch";
 import PhotoCard from "./PhotoCard";
 import "./App.css";
 
 function App() {
-  const { data: photos, loading, error } = useFetch("https://picsum.photos/v2/list?limit=100");
+  const { data: photos, loading, error } = useFetchData("https://picsum.photos/v2/list?limit=100");
   const [selectedIds, setSelectedIds] = useState([]);
 
-  const pairs = {
-    0: 1,
-    1: 0,
-    2: 3,
-    3: 2,
-  };
-
+  const pairs = { 0: 1, 1: 0, 2: 3, 3: 2,};
+ 
   const handleSelect = (id) => {
     let newSelection = [...selectedIds];
 
     if (newSelection.includes(id)) {
-      // Deselect current + pair
+  
       newSelection = newSelection.filter((item) => item !== id && item !== pairs[id]);
     } else {
-      // Select current + pair
+      
       newSelection.push(id);
       if (pairs[id] !== undefined) {
         newSelection.push(pairs[id]);
@@ -31,7 +26,7 @@ function App() {
     setSelectedIds(newSelection);
   };
 
-  // 🔹 Heading click pe first 2 box select karna
+  
   const handleHeadingClick = () => {
     setSelectedIds([0, 1]);
   };
